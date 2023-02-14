@@ -1,10 +1,13 @@
 import React from 'react';
+import APCategories from "../../components/AdminPage/APCategories/APCategories.jsx";
+import {Container} from "react-bootstrap";
 
 const AdminPage = () => {
     return (
-        <div className={"AdminPage"}>
+        <Container className={"AdminPage py-3"}>
             <h3>Admin page</h3>
-        </div>
+            <APCategories />
+        </Container>
     );
 };
 

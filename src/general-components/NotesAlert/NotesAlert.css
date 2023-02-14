@@ -1,0 +1,12 @@
+.NotesAlert{
+    position: fixed !important;
+    left: 10px;
+    bottom: 10px;
+
+    width: 300px;
+    margin: 0 !important;
+}
+
+.NotesAlert p.small{
+    margin: 0;
+}

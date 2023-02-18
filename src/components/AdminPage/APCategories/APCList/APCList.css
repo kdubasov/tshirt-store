@@ -1,0 +1,10 @@
+.APCList{
+    width: calc(50% - 1em);
+    height: auto;
+}
+
+
+/*pagination swiper*/
+.APCList .swiper-pagination-bullets-dynamic{
+    bottom: 20px !important;
+}

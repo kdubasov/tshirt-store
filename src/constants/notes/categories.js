@@ -16,3 +16,10 @@ export const NT_ADD_CATEGORY_ERROR_RENAME = {
     title: "Ошибка!",
     variant: "danger",
 }
+
+export const NT_ADD_CATEGORY_ERROR_REDACT_LINK = {
+    show: true,
+    text: "Ссылка может содержать только латинские буквы и числа.",
+    title: "Ошибка!",
+    variant: "danger",
+}

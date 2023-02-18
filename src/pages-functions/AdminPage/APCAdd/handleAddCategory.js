@@ -8,5 +8,6 @@ export const handleAddCategory = (data) =>{
         ...data,
         date: getDate(Date.now()),
         dateNoRedact: Date.now(),
+        databaseURL: `/categories/${data.link}`,
     })
 };

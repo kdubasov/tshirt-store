@@ -4,12 +4,18 @@ import "./APCAdd.css";
 import {handleAddCategory} from "../../../../pages-functions/AdminPage/APCAdd/handleAddCategory.js";
 import {useDispatch} from "react-redux";
 import {setNote} from "../../../../redux-store/slices/notificationsSlice.js";
-import {NT_ADD_CATEGORY, NT_ADD_CATEGORY_ERROR} from "../../../../constants/notes/categories.js";
+import {
+    NT_ADD_CATEGORY,
+    NT_ADD_CATEGORY_ERROR,
+    NT_ADD_CATEGORY_ERROR_REDACT_LINK, NT_ADD_CATEGORY_ERROR_RENAME
+} from "../../../../constants/notes/categories.js";
 import {handleClearNotes} from "../../../../general-functions/redux-functions/handleClearNotes.js";
+import {useGetAllCategories} from "../../../../pages-hooks/AdminPage/Categories/useGetAllCategories.js";
 
 const APCAdd = () => {
 
-    //сделать проверку ссылки на то есть ли такая и валидацию для нее добавить
+    //список категорий
+    const categories = useGetAllCategories();
 
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
@@ -22,7 +28,7 @@ const APCAdd = () => {
     //change state data
     const handleChange = (input,value) => {
         const copy = Object.assign({},formData);
-        copy[input] = value.trim();//удаляем пробелы по краям
+        copy[input] = value;
         setFormData(copy)
     }
 
@@ -43,11 +49,32 @@ const APCAdd = () => {
 
     const handleSend = e => {
         e.preventDefault();
-        handleAddCategory(formData)
-            .then(() => dispatch(setNote(NT_ADD_CATEGORY)))
-            .catch(() => dispatch(setNote(NT_ADD_CATEGORY_ERROR)))
-        setFormData({title: "", description: "", photo: "", link: "",})
-        handleClearNotes(dispatch,5)
+
+        if (checkLink()){//check valid link
+            handleAddCategory(formData)
+                .then(() => dispatch(setNote(NT_ADD_CATEGORY)))
+                .catch(() => dispatch(setNote(NT_ADD_CATEGORY_ERROR)))
+            setFormData({title: "", description: "", photo: "", link: "",})
+            handleClearNotes(dispatch,5)
+        }
+    }
+
+    const checkLink = () => {
+        //check symbols
+        if (!(/^[A-Za-z0-9]+$/.test(formData.link))){
+            dispatch(setNote(NT_ADD_CATEGORY_ERROR_REDACT_LINK));
+            handleClearNotes(dispatch,5);
+            return false;
+        }
+
+        //check elem in db with link
+        if (categories.find(elem => elem.link === formData.link)){
+            dispatch(setNote(NT_ADD_CATEGORY_ERROR_RENAME));
+            handleClearNotes(dispatch,5);
+            return false;
+        }
+
+        return true;
     }
 
     return (

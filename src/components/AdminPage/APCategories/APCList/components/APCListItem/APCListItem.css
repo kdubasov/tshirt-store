@@ -1,0 +1,20 @@
+/*card*/
+.APCListItem.card{
+    height: 240px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*img*/
+.APCListItem img{
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/*link button*/
+.APCListItem .card-link{
+    cursor: pointer;
+}

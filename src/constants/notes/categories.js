@@ -23,3 +23,17 @@ export const NT_ADD_CATEGORY_ERROR_REDACT_LINK = {
     title: "Ошибка!",
     variant: "danger",
 }
+
+export const NT_REDACT_CATEGORY = {
+    show: true,
+    text: "Категория успешно изменена.",
+    title: "Успешно!",
+    variant: "success",
+}
+
+export const NT_REDACT_CATEGORY_ERROR = {
+    show: true,
+    text: "Ошибка редактирования категории.",
+    title: "Ошибка!",
+    variant: "danger",
+}

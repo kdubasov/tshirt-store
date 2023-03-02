@@ -1,0 +1,20 @@
+/*navbar container*/
+.NavbarTop.navbar>.container{
+    align-items: flex-end;
+}
+
+/*links*/
+.NavbarTop a{
+    color: var(--bs-white);
+    margin-right: .5em;
+}
+.NavbarTop a:hover{
+    color: var(--bs-pink);
+}
+.NavbarTop a.logo{
+    font-size: 1.25em;
+    font-weight: 900;
+}
+.NavbarTop a:last-child{
+    margin-right: 0;
+}

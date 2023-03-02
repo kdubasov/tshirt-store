@@ -1,0 +1,11 @@
+.LoginForm{
+    width: 300px;
+    padding: 1em;
+    border: 1px solid var(--bs-gray-300);
+    border-radius: .25em;
+}
+
+/*form control*/
+.LoginForm input{
+    margin-bottom: .25em;
+}

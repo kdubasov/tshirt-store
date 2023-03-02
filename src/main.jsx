@@ -9,15 +9,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // router
 import {BrowserRouter} from "react-router-dom";
+
+//providers
 import {Provider} from "react-redux";
 import {store} from "./redux-store/store.js";
+import {AuthContextProvider} from "./context-providers/AuthContextProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <Provider store={store}>
-        <BrowserRouter>
-            <React.StrictMode>
-                <Router />
-            </React.StrictMode>
-        </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+        <AuthContextProvider>
+            <Provider store={store}>
+                <React.StrictMode>
+                    <Router />
+                </React.StrictMode>
+            </Provider>
+        </AuthContextProvider>
+    </BrowserRouter>
 )

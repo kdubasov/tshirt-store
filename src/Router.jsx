@@ -7,6 +7,9 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import NotesAlert from "./general-components/NotesAlert/NotesAlert.jsx";
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import SignUpPage from "./pages/SignUpPage/SignUpPage.jsx";
+import {LINK_ADMIN, LINK_ALL, LINK_DEF, LINK_LOGIN, LINK_SIGNUP, LINK_USER_PROFILE} from "./constants/links.js";
+import UserProfilePage from "./pages/UserProfilePage/UserProfilePage.jsx";
+import AuthCheckRoute from "./general-components/AuthCheckRouter.jsx";
 
 const Router = () => {
     return (
@@ -15,13 +18,19 @@ const Router = () => {
             {/*notes alert*/}
             <NotesAlert />
 
+            {/*top menu*/}
             <NavbarTop />
+
             <Routes>
-                <Route path={"/"} element={<MainPage />} />
-                <Route path={"/admin"} element={<AdminPage />} />
-                <Route path={"/login"} element={<LoginPage />} />
-                <Route path={"/signUp"} element={<SignUpPage />} />
-                <Route path={"*"} element={<NotFoundPage />} />
+                <Route path={LINK_DEF} element={<MainPage />} />
+                <Route path={LINK_ADMIN} element={<AdminPage />} />
+                <Route path={LINK_LOGIN} element={<LoginPage />} />
+                <Route path={LINK_SIGNUP} element={<SignUpPage />} />
+                <Route path={LINK_ALL} element={<NotFoundPage />} />
+                <Route
+                    path={LINK_USER_PROFILE}
+                    element={<AuthCheckRoute children={<UserProfilePage />} />}
+                />
             </Routes>
         </div>
     );

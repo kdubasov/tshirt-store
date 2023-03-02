@@ -1,10 +1,25 @@
 import React, {useState} from 'react';
 import {Button, Form} from "react-bootstrap";
 import {getFormControl} from "../../../general-functions/get-html-functions/getFormControl.jsx";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import "./SignUpForm.css";
+import {authDB} from "../../../database/firebase-connect.js";
+import {useDispatch} from "react-redux";
+import {setNote} from "../../../redux-store/slices/notificationsSlice.js";
+import {
+    NT_AUTH_SIGNUP,
+    NT_AUTH_SIGNUP_ERROR,
+    NT_AUTH_SIGNUP_PASS_CHARS_ERROR,
+    NT_AUTH_SIGNUP_PASS_ERROR
+} from "../../../constants/notes/auth.js";
+import {useNavigate} from "react-router-dom";
+import {handleClearNotes} from "../../../general-functions/redux-functions/handleClearNotes.js";
+import {LINK_LOGIN} from "../../../constants/links.js";
 
 const SignUpForm = () => {
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [formData,setFormData] = useState({
         name: "",
         email: "",
@@ -18,8 +33,38 @@ const SignUpForm = () => {
         setFormData(copy);
     }
 
+    const handleSend = e => {
+        e.preventDefault();
+
+        //check password confirm
+        if (formData.password !== formData.passwordConfirm){
+            dispatch(setNote(NT_AUTH_SIGNUP_PASS_ERROR))
+            handleClearNotes(dispatch,3)
+            return;
+        }
+        //check password length
+        if (formData.password.length < 8){
+            dispatch(setNote(NT_AUTH_SIGNUP_PASS_CHARS_ERROR))
+            handleClearNotes(dispatch,3)
+            return;
+        }
+        //send data to database
+        createUserWithEmailAndPassword(authDB, formData.email, formData.password)
+            .then(() => {
+                updateProfile(authDB.currentUser, {
+                    displayName: formData.name,
+                }).then(() => console.log("UpdateProfile success!"))
+            })
+            .then(() => {
+                dispatch(setNote(NT_AUTH_SIGNUP))
+                navigate(LINK_LOGIN)
+            })
+            .catch(error => dispatch(setNote(NT_AUTH_SIGNUP_ERROR(error.message))))
+            .finally(() => handleClearNotes(dispatch))
+    }
+
     return (
-        <Form className={"SignUpForm"}>
+        <Form onSubmit={handleSend} className={"SignUpForm"}>
             {getFormControl("Имя и фамилия","name","text",formData,handleChange)}
             {getFormControl("Email","email","email",formData,handleChange)}
             {getFormControl("Пароль","password","password",formData,handleChange)}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Badge} from "react-bootstrap";
-import APCAdd from "./APCAdd/APCAdd.jsx";
-import APCList from "./APCList/APCList.jsx";
+import APCAdd from "./components/APCAdd/APCAdd.jsx";
+import APCList from "./components/APCList/APCList.jsx";
 import "./APCategories.css";
 
 const APCategories = () => {

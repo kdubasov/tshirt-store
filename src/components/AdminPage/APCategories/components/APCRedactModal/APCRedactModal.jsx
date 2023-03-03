@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {Button, Form, FormControl, Modal} from "react-bootstrap";
-import {handleRedactCategory} from "../../../../pages-functions/AdminPage/APCRedact/handleRedactCategory.js";
+import {handleRedactCategory} from "../../../../../pages-functions/AdminPage/APCRedact/handleRedactCategory.js";
 import {useDispatch} from "react-redux";
-import {setNote} from "../../../../redux-store/slices/notificationsSlice.js";
-import {NT_REDACT_CATEGORY, NT_REDACT_CATEGORY_ERROR} from "../../../../constants/notes/categories.js";
-import {handleClearNotes} from "../../../../general-functions/redux-functions/handleClearNotes.js";
+import {setNote} from "../../../../../redux-store/slices/notificationsSlice.js";
+import {NT_REDACT_CATEGORY, NT_REDACT_CATEGORY_ERROR} from "../../../../../constants/notes/categories.js";
+import {handleClearNotes} from "../../../../../general-functions/redux-functions/handleClearNotes.js";
 import "./APCRedactModal.css";
 
 const APCRedactModal = ({show,onHide,data}) => {

@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {Badge, Button, Form, FormControl} from "react-bootstrap";
 import "./APCAdd.css";
-import {handleAddCategory} from "../../../../pages-functions/AdminPage/APCAdd/handleAddCategory.js";
+import {handleAddCategory} from "../../../../../pages-functions/AdminPage/APCAdd/handleAddCategory.js";
 import {useDispatch} from "react-redux";
-import {setNote} from "../../../../redux-store/slices/notificationsSlice.js";
+import {setNote} from "../../../../../redux-store/slices/notificationsSlice.js";
 import {
     NT_ADD_CATEGORY,
     NT_ADD_CATEGORY_ERROR,
     NT_ADD_CATEGORY_ERROR_REDACT_LINK, NT_ADD_CATEGORY_ERROR_RENAME
-} from "../../../../constants/notes/categories.js";
-import {handleClearNotes} from "../../../../general-functions/redux-functions/handleClearNotes.js";
-import {useGetAllCategories} from "../../../../pages-hooks/AdminPage/Categories/useGetAllCategories.js";
+} from "../../../../../constants/notes/categories.js";
+import {handleClearNotes} from "../../../../../general-functions/redux-functions/handleClearNotes.js";
+import {useGetAllCategories} from "../../../../../pages-hooks/AdminPage/Categories/useGetAllCategories.js";
 
 const APCAdd = () => {
 
@@ -36,7 +36,6 @@ const APCAdd = () => {
     const getFormControl = (input, req, plc, textarea = false) => {
         return (
             <FormControl
-                className={"mb-2"}
                 as={textarea ? "textarea" : "input"}
                 placeholder={plc}
                 required={req}
@@ -90,7 +89,7 @@ const APCAdd = () => {
                 {getFormControl("link",true,"Ссылка")}
 
                 <Button type={"submit"} size={"sm"} className={"w-100"}>
-                    Add
+                    Добавить категорию
                 </Button>
             </Form>
         </div>

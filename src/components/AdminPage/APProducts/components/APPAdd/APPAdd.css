@@ -1,9 +1,15 @@
-.APCAdd{
+.APPAdd{
     width: calc(50% - 1em);
 }
 
-.APCAdd form{
+/*form*/
+.APPAdd form{
     padding: 1em;
     border: 1px solid var(--bs-gray-300);
     border-radius: 5px;
+}
+
+.APPAdd form input,
+.APPAdd form textarea{
+    margin-bottom: .25em;
 }

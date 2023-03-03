@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Card} from "react-bootstrap";
-import DeleteModal from "../../../../../../general-components/DeleteModal/DeleteModal.jsx";
+import DeleteModal from "../../../../../../../general-components/DeleteModal/DeleteModal.jsx";
 import "./APCListItem.css";
 import APCRedactModal from "../../../APCRedactModal/APCRedactModal.jsx";
 

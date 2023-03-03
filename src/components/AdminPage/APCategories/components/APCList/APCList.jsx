@@ -1,6 +1,6 @@
 import React from 'react';
 import "./APCList.css";
-import {useGetAllCategories} from "../../../../pages-hooks/AdminPage/Categories/useGetAllCategories.js";
+import {useGetAllCategories} from "../../../../../pages-hooks/AdminPage/Categories/useGetAllCategories.js";
 import {Badge} from "react-bootstrap";
 
 // swiper

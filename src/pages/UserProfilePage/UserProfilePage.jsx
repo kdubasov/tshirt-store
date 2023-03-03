@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux";
 import {setNote} from "../../redux-store/slices/notificationsSlice.js";
 import {NT_AUTH_EMAIL_VERIFY, NT_AUTH_EMAIL_VERIFY_ERROR} from "../../constants/notes/auth.js";
 import {handleClearNotes} from "../../general-functions/redux-functions/handleClearNotes.js";
+import UpdatePassword from "../../components/UserProfilePage/UpdatePassword/UpdatePassword.jsx";
 
 const UserProfilePage = () => {
 
@@ -41,21 +42,24 @@ const UserProfilePage = () => {
                 <ListGroupItem>{user?.metadata?.creationTime}</ListGroupItem>
             </ListGroup>
 
-            <div className="border p-3 mt-2 border">
+            <div className="d-flex border p-3 mt-2 border">
                 <Button onClick={handleLogOut} size={"sm"} variant={"danger"}>
                     Выйти
                 </Button>
 
                 {
                     !user.emailVerified &&
-                    <Button disabled={verifyEmail} onClick={verificationEmail} size={"sm"} className={"mx-2"}>
+                    <Button
+                        disabled={Boolean(verifyEmail)}
+                        onClick={verificationEmail}
+                        size={"sm"}
+                        className={"mx-2"}
+                    >
                         {verifyEmail ? "Письмо отправлено!" : "Подтвердить почту"}
                     </Button>
                 }
 
-                <Button size={"sm"} variant={"secondary"}>
-                    Редактировать пароль
-                </Button>
+                <UpdatePassword />
             </div>
         </Container>
     );

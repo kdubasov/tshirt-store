@@ -5,6 +5,8 @@
 
     width: 300px;
     margin: 0 !important;
+    /*modal z-index +1*/
+    z-index: 1051;
 }
 
 .NotesAlert p.small{

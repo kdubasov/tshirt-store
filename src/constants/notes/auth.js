@@ -17,14 +17,14 @@ export const NT_AUTH_SIGNUP_ERROR = error => {
 export const NT_AUTH_SIGNUP_PASS_ERROR = {
     show: true,
     text: "Пароли не совпадают.",
-    title: "Ошибка регистрации!",
+    title: "Ошибка пароля!",
     variant: "danger",
 }
 
 export const NT_AUTH_SIGNUP_PASS_CHARS_ERROR = {
     show: true,
     text: "Пароль должен быть минимум 8 символов.",
-    title: "Ошибка регистрации!",
+    title: "Ошибка пароля!",
     variant: "danger",
 }
 
@@ -56,4 +56,20 @@ export const NT_AUTH_EMAIL_VERIFY_ERROR  = {
     text: "Ошибка отправки пиьсма с подтверждением.",
     title: "Письмо НЕ отправлено!",
     variant: "danger",
+}
+
+export const NT_AUTH_PASS_RESET  = {
+    show: true,
+    text: "Пароль успешно обновлен.",
+    title: "Успешно!",
+    variant: "success",
+}
+
+export const NT_AUTH_PASS_RESET_ERROR = error => {
+    return {
+        show: true,
+        text: error,
+        title: "Ошибка при обновлении пароля!",
+        variant: "danger",
+    }
 }

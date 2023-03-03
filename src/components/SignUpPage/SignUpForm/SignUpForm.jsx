@@ -6,15 +6,11 @@ import "./SignUpForm.css";
 import {authDB} from "../../../database/firebase-connect.js";
 import {useDispatch} from "react-redux";
 import {setNote} from "../../../redux-store/slices/notificationsSlice.js";
-import {
-    NT_AUTH_SIGNUP,
-    NT_AUTH_SIGNUP_ERROR,
-    NT_AUTH_SIGNUP_PASS_CHARS_ERROR,
-    NT_AUTH_SIGNUP_PASS_ERROR
-} from "../../../constants/notes/auth.js";
+import {NT_AUTH_SIGNUP, NT_AUTH_SIGNUP_ERROR} from "../../../constants/notes/auth.js";
 import {useNavigate} from "react-router-dom";
 import {handleClearNotes} from "../../../general-functions/redux-functions/handleClearNotes.js";
 import {LINK_LOGIN} from "../../../constants/links.js";
+import {checkPassword} from "../../../general-functions/auth-functions/checkPassword.js";
 
 const SignUpForm = () => {
 
@@ -36,18 +32,11 @@ const SignUpForm = () => {
     const handleSend = e => {
         e.preventDefault();
 
-        //check password confirm
-        if (formData.password !== formData.passwordConfirm){
-            dispatch(setNote(NT_AUTH_SIGNUP_PASS_ERROR))
-            handleClearNotes(dispatch,3)
+        //check password
+        if (!checkPassword(dispatch, formData.password, formData.passwordConfirm)){
             return;
         }
-        //check password length
-        if (formData.password.length < 8){
-            dispatch(setNote(NT_AUTH_SIGNUP_PASS_CHARS_ERROR))
-            handleClearNotes(dispatch,3)
-            return;
-        }
+
         //send data to database
         createUserWithEmailAndPassword(authDB, formData.email, formData.password)
             .then(() => {

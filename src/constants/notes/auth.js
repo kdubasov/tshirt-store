@@ -73,3 +73,19 @@ export const NT_AUTH_PASS_RESET_ERROR = error => {
         variant: "danger",
     }
 }
+
+export const NT_AUTH_PASS_EMAIL  = {
+    show: true,
+    text: "Письмо для восстановления пароля успешно отправлено.",
+    title: "Отправлено!",
+    variant: "success",
+}
+
+export const NT_AUTH_PASS_EMAIL_ERROR = error => {
+    return {
+        show: true,
+        text: error,
+        title: "Ошибка при отправке письма!",
+        variant: "danger",
+    }
+}

@@ -12,6 +12,8 @@
     color: var(--bs-pink);
 }
 .NavbarTop a.logo{
+    text-decoration: none;
+    color: var(--bs-yellow);
     font-size: 1.25em;
     font-weight: 900;
 }

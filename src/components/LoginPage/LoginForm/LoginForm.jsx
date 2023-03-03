@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import "./LoginForm.css";
 import {getFormControl} from "../../../general-functions/get-html-functions/getFormControl.jsx";
 import {Button, Form} from "react-bootstrap";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import { signInWithEmailAndPassword,setPersistence,browserLocalPersistence } from "firebase/auth";
 import {authDB} from "../../../database/firebase-connect.js";
 import {setNote} from "../../../redux-store/slices/notificationsSlice.js";
 import {NT_AUTH_LOGIN, NT_AUTH_LOGIN_ERROR} from "../../../constants/notes/auth.js";
 import {handleClearNotes} from "../../../general-functions/redux-functions/handleClearNotes.js";
-import {LINK_USER_PROFILE} from "../../../constants/links.js";
+import {LINK_RESET_PASS, LINK_USER_PROFILE} from "../../../constants/links.js";
 
 const LoginForm = () => {
 
@@ -49,6 +49,10 @@ const LoginForm = () => {
             <Button type={"submit"} className={"w-100"} size={"sm"}>
                 Войти
             </Button>
+
+            <Link to={LINK_RESET_PASS}>
+                Восстановить пароль
+            </Link>
         </Form>
     );
 };

@@ -18,8 +18,13 @@ const NavbarTop = () => {
                 </Link>
 
                 <Nav className="me-auto">
-                    <Link to={LINK_LOGIN}>Вход</Link>
-                    <Link to={LINK_SIGNUP}>Регистрация</Link>
+                    {
+                        !user &&
+                        <>
+                            <Link to={LINK_LOGIN}>Вход</Link>
+                            <Link to={LINK_SIGNUP}>Регистрация</Link>
+                        </>
+                    }
 
                     {user && <Link to={LINK_USER_PROFILE}>{user.email}</Link>}
                 </Nav>

@@ -14,8 +14,13 @@ const AdminPage = () => {
         return (
             <Container className={"AdminPage py-3"}>
                 <h3>Admin page</h3>
+
                 <APCategories />
+                <hr/>
+
                 <APProducts />
+                <hr/>
+
             </Container>
         );
     }

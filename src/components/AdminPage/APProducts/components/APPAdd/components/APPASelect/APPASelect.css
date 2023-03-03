@@ -1,0 +1,14 @@
+.APPASizes{
+    padding: .75em 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: stretch;
+}
+
+/*block*/
+.APPASizes button{
+    width: calc(33% - .15em);
+    margin: .15em 0;
+    font-size: .75em;
+}

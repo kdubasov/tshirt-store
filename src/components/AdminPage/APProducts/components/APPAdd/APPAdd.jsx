@@ -1,16 +1,15 @@
 import React, {useState} from 'react';
-import {Badge, Button, Form, FormControl, FormSelect} from "react-bootstrap";
+import {Badge, Button, Form, FormControl} from "react-bootstrap";
 import "./APPAdd.css";
-import {useGetAllCategories} from "../../../../../pages-hooks/AdminPage/Categories/useGetAllCategories.js";
+import APPASelect from "./components/APPASelect/APPASelect.jsx";
+import APPACategory from "./components/APPACategory/APPACategory.jsx";
+import {APPDataGeneral} from "./data/APPDataGeneral.js";
 
 const APPAdd = () => {
 
-    //list categories
-    const categories = useGetAllCategories();
-
     //form data
     const [productData, setProductData] = useState({
-        category: {},
+        category: "",
         title: "",
         description: "",
         characteristic: "",
@@ -23,6 +22,7 @@ const APPAdd = () => {
         pay: [],
         images: [],
     });
+    console.log(productData);
 
     //change state data
     const handleChange = (input,value) => {
@@ -53,21 +53,34 @@ const APPAdd = () => {
             </Badge>
 
             <Form>
-                <FormSelect size={"sm"} className={"mb-1"}>
-                    {
-                        categories?.map(elem => (
-                            <option value={elem} key={elem.link}>
-                                {elem.title}
-                            </option>
-                        ))
-                    }
-                </FormSelect>
+                {/*select category*/}
+                <APPACategory handleChange={handleChange} />
 
                 {getFormControl("title",true,"Название","text")}
                 {getFormControl("description",true,"Описание","text",true)}
                 {getFormControl("characteristic",false,"Характеристики","text",true)}
-                {getFormControl("price",true,"Цена","number",)}
-                {getFormControl("sale",true,"Скидка (%)","number",)}
+                {getFormControl("price",true,"Цена (₽)","number",)}
+                {getFormControl("sale",false,"Скидка (0-100%)","number",)}
+
+                {/*photos*/}
+                <Form.Control
+                    type="file"
+                    size={"sm"}
+                    multiple
+                    onChange={e => handleChange("images",e.target.files)}
+                />
+
+                {//селекты (размеры/цвета/доставка/оплата)
+                    APPDataGeneral.map(elem => (
+                        <APPASelect
+                            key={elem.input}
+                            handleChange={handleChange}
+                            title={elem.title}
+                            data={elem.data}
+                            input={elem.input}
+                        />
+                    ))
+                }
 
                 <Button className={"w-100"} size={"sm"} type={"submit"}>
                     Добавить товар

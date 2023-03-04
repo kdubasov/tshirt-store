@@ -4,16 +4,16 @@ import "./APPASelect.css";
 
 const APPASelect = ({handleChange,title,data,input}) => {
 
-    const [selectSize, setSelectSize] = useState([]);
+    const [selectValue, setSelectValue] = useState([]);
 
     const handleSelect = value => {
-        const index = selectSize.indexOf(value)
+        const index = selectValue.indexOf(value)
         if (index === -1){
-            setSelectSize([...selectSize,value])
-            handleChange(input,[...selectSize,value])
+            setSelectValue([...selectValue,value])
+            handleChange(input,[...selectValue,value])
         }else {
-            setSelectSize([...selectSize.filter(elem => elem !== value)])
-            handleChange(input,[...selectSize.filter(elem => elem !== value)])
+            setSelectValue([...selectValue.filter(elem => elem !== value)])
+            handleChange(input,[...selectValue.filter(elem => elem !== value)])
         }
     }
 
@@ -27,7 +27,7 @@ const APPASelect = ({handleChange,title,data,input}) => {
                         variant={"outline-secondary"}
                         key={elem}
                         onClick={() => handleSelect(elem)}
-                        active={selectSize.includes(elem)}
+                        active={selectValue.includes(elem)}
                     >
                         {elem}
                     </Button>

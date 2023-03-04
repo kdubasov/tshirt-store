@@ -9,9 +9,9 @@ import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import SignUpPage from "./pages/SignUpPage/SignUpPage.jsx";
 import {
     LINK_ADMIN,
-    LINK_ALL,
+    LINK_ALL, LINK_CATEGORIES,
     LINK_DEF,
-    LINK_LOGIN,
+    LINK_LOGIN, LINK_PRODUCT_PAGE, LINK_PRODUCTS_LIST,
     LINK_RESET_PASS,
     LINK_SIGNUP,
     LINK_USER_PROFILE
@@ -19,6 +19,9 @@ import {
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage.jsx";
 import AuthCheckRoute from "./general-components/AuthCheckRouter.jsx";
 import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage.jsx";
+import ProductPage from "./pages/ProductPage/ProductPage.jsx";
+import CategoriesPage from "./pages/CategoriesPage/CategoriesPage.jsx";
+import CategoryProductsPage from "./pages/CategoryProductsPage/CategoryProductsPage.jsx";
 
 const Router = () => {
     return (
@@ -41,6 +44,9 @@ const Router = () => {
                     path={LINK_USER_PROFILE}
                     element={<AuthCheckRoute children={<UserProfilePage />} />}
                 />
+                <Route path={LINK_CATEGORIES} element={<CategoriesPage />} />
+                <Route path={LINK_PRODUCTS_LIST} element={<CategoryProductsPage />} />
+                <Route path={LINK_PRODUCT_PAGE} element={<ProductPage />} />
             </Routes>
         </div>
     );

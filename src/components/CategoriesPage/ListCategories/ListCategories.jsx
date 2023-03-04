@@ -7,11 +7,10 @@ const ListCategories = () => {
 
     //all categories list
     const data = useGetAllCategories();
-    // console.log(data);
 
     return (
         <div className={"ListCategories"}>
-            <Badge className={"mb-2"}>Категории</Badge>
+            <Badge className={"mb-2"}>Список всех категорий</Badge>
 
             <ListGroup>
                 {

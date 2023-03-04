@@ -4,25 +4,19 @@ import "./APPAdd.css";
 import APPASelect from "./components/APPASelect/APPASelect.jsx";
 import APPACategory from "./components/APPACategory/APPACategory.jsx";
 import {APPDataGeneral} from "./data/APPDataGeneral.js";
+import {handleAddProduct} from "../../../../../pages-functions/AdminPage/APPAdd/handleAddProduct.js";
+import {checkProductInputs} from "../../../../../pages-functions/AdminPage/APPAdd/checkProductInputs.js";
+import {useDispatch} from "react-redux";
+import {APPFormData} from "./data/APPFormData.js";
+import {useNavigate} from "react-router-dom";
 
 const APPAdd = () => {
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     //form data
-    const [productData, setProductData] = useState({
-        category: "",
-        title: "",
-        description: "",
-        characteristic: "",
-        price: "",
-        sale: "",
-        gender: "",
-        sizes: [],
-        colors: [],
-        delivery: [],
-        pay: [],
-        images: [],
-    });
-    console.log(productData);
+    const [productData, setProductData] = useState(APPFormData);
 
     //change state data
     const handleChange = (input,value) => {
@@ -46,13 +40,26 @@ const APPAdd = () => {
         )
     }
 
+    const handleAdd = e => {
+        e.preventDefault()
+        console.log(productData)
+
+        //проверям все ли поля заполнены
+        if (!checkProductInputs(productData,dispatch)){
+            return;
+        }
+
+        handleAddProduct(productData,dispatch,navigate);
+        setProductData(APPFormData)
+    }
+
     return (
         <div className={"APPAdd"}>
             <Badge className={"w-100 mb-1"} bg={"success"}>
                 Добавить товар
             </Badge>
 
-            <Form>
+            <Form onSubmit={handleAdd}>
                 {/*select category*/}
                 <APPACategory handleChange={handleChange} />
 

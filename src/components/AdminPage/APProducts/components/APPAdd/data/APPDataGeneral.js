@@ -2,6 +2,7 @@ import {APPDeliveryData} from "./APPDeliveryData.js";
 import {APPSizesData} from "./APPSizesData.js";
 import {APPColorsData} from "./APPColorsData.js";
 import {APPPayData} from "./APPPayData.js";
+import {APPGenderData} from "./APPGenderData.js";
 
 export const APPDataGeneral = [
     {
@@ -23,5 +24,10 @@ export const APPDataGeneral = [
         title: "Оплата",
         input: "pay",
         data: APPPayData,
+    },
+    {
+        title: "Пол",
+        input: "gender",
+        data: APPGenderData,
     },
 ];

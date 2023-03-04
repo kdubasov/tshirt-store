@@ -13,8 +13,17 @@ export const useGetAllProducts = () =>{
             const dataInner = snapshot.val();
             // console.log(dataInner);
             if (dataInner){
+                setData([])
                 // eslint-disable-next-line
-                console.log(dataInner)
+                const categories = Object.values(dataInner)
+                for (let categ of categories){
+                    const products = categ["products"];
+                    if (products){
+                        for (let product of Object.values(products)){
+                            setData(old => [...old, product])
+                        }
+                    }
+                }
             }else {
                 return []
             }

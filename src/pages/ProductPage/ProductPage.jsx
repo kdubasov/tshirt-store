@@ -9,15 +9,19 @@ const ProductPage = () => {
     const location = useLocation();
     const locationSorted = getProductFromPath(location.pathname);
     const productData = useGetOneProduct(locationSorted);
-    console.log(productData,"ProductPage data")
+    console.log(productData,"ProductPage data");
 
     if (Boolean(Object.values(productData).length))
     return (
         <Container className={"ProductPage py-3"}>
             <Badge>Страница товара</Badge>
 
-            <br/>
-            <Badge>{productData.title}</Badge>
+            <br/><br/>
+            <Badge>
+                <h3 className="m-0">
+                    {productData.title}
+                </h3>
+            </Badge>
         </Container>
     );
 };

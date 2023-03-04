@@ -1,0 +1,4 @@
+.CPPListProducts{
+    display: flex;
+    flex-wrap: wrap;
+}

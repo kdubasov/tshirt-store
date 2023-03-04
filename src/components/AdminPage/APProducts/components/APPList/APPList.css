@@ -1,0 +1,11 @@
+.APPList{
+    width: calc(50% - 1em);
+}
+
+.APPList .content{
+    height: calc(100% - 30px);
+    max-height: calc(100% - 30px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}

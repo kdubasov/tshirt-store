@@ -1,0 +1,17 @@
+.PPOrder{
+    padding: .5em;
+    border-radius: 5px;
+    border: 1px solid var(--bs-gray-300);
+}
+
+.PPOrder .btn-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.PPOrder .btn-container button{
+    width: calc(50% - .15em);
+}
+.PPOrder .btn-container button:last-child{
+    margin-top: .25em;
+}

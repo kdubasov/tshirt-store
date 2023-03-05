@@ -1,0 +1,12 @@
+.ProductPage .top-content{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+/*slider*/
+.ProductPage .top-content .PCSlider{
+    width: 50%;
+    height: 400px;
+}

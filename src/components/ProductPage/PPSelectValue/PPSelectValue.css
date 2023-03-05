@@ -1,0 +1,16 @@
+.PPSelectValue{
+    padding: .1em 0;
+}
+
+/*button container*/
+.PPSelectValue .content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/*button*/
+.PPSelectValue .content button{
+    width: calc(33.3% - .15em);
+    margin: .15em 0;
+}

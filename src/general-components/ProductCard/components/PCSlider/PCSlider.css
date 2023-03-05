@@ -1,7 +1,13 @@
 .PCSlider{
     height: 250px;
+    margin: 0;
+}
+.PCSlider .swiper-slide{
+    display: flex;
+    align-items: center;
+    background: var(--bs-gray-200);
+    border-radius: 5px;
 }
 .PCSlider img{
     max-width: 100%;
-    border-radius: 5px;
 }

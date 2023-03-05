@@ -1,0 +1,16 @@
+.PPMainContent{
+    width: calc(50% - 1em);
+}
+.PPMainContent h4.title{
+    font-weight: 600;
+    opacity: .75;
+}
+.PPMainContent .price-inner{
+    display: flex;
+    align-items: center;
+}
+.PPMainContent .price-inner h2{
+    margin: 0 .25em 0 0;
+    line-height: 1;
+    font-weight: 900;
+}

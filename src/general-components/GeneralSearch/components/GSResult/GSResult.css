@@ -1,0 +1,15 @@
+.GSResult{
+    position: absolute;
+    top: 45px;
+
+    width: 100%;
+    padding: 1em;
+    border-radius: 5px;
+    border: 1px solid var(--bs-gray-300);
+    z-index: 10;
+}
+
+.GSResult .content{
+    display: flex;
+    flex-direction: column;
+}

@@ -6,6 +6,7 @@ import {useGetOneProduct} from "../../pages-hooks/AdminPage/Products/useGetOnePr
 import PCSlider from "../../general-components/ProductCard/components/PCSlider/PCSlider.jsx";
 import "./ProductPage.css";
 import PPMainContent from "../../components/ProductPage/PPMainContent/PPMainContent.jsx";
+import PPAdditionalData from "../../components/ProductPage/PPAdditionalData/PPAdditionalData.jsx";
 
 const ProductPage = () => {
 
@@ -22,6 +23,8 @@ const ProductPage = () => {
                 <PCSlider productId={productData.id} />
                 <PPMainContent data={productData} />
             </div>
+
+            <PPAdditionalData data={productData} />
         </Container>
     );
 };

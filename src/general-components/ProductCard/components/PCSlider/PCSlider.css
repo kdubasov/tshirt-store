@@ -5,9 +5,10 @@
 .PCSlider .swiper-slide{
     display: flex;
     align-items: center;
+    justify-content: center;
     background: var(--bs-gray-200);
     border-radius: 5px;
 }
 .PCSlider img{
-    max-width: 100%;
+    height: 100%;
 }

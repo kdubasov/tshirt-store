@@ -4,11 +4,15 @@ import {Link} from "react-router-dom";
 import {LINK_PRODUCT_PAGE_FNC} from "../../../../../../../constants/links.js";
 import {Button, ButtonGroup, ListGroup, ListGroupItem} from "react-bootstrap";
 import DeleteModal from "../../../../../../../general-components/DeleteModal/DeleteModal.jsx";
+import APPRedactModal from "../../../APPRedactModal/APPRedactModal.jsx";
 
 const APPLItem = ({data}) => {
 
     //modal delete
     const [modalDelete, setModalDelete] = useState(false);
+
+    //modal delete
+    const [modalRedact, setModalRedact] = useState(false);
 
     return (
         <>
@@ -34,7 +38,7 @@ const APPLItem = ({data}) => {
 
                 <div className="btn-container">
                     <ButtonGroup>
-                        <Button size={"sm"} variant={"secondary"}>
+                        <Button onClick={() => setModalRedact(true)} size={"sm"} variant={"secondary"}>
                             Редактировать
                         </Button>
 
@@ -45,10 +49,17 @@ const APPLItem = ({data}) => {
                 </div>
             </div>
 
-            {/*delete category modal*/}
+            {/*delete product modal*/}
             <DeleteModal
                 show={modalDelete}
                 onHide={() => setModalDelete(false)}
+                data={data}
+            />
+
+            {/*redact product modal*/}
+            <APPRedactModal
+                show={modalRedact}
+                onHide={() => setModalRedact(false)}
                 data={data}
             />
         </>

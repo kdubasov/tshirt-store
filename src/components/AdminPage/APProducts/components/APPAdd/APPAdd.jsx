@@ -85,6 +85,7 @@ const APPAdd = () => {
                             title={elem.title}
                             data={elem.data}
                             input={elem.input}
+                            nowData={false}
                         />
                     ))
                 }

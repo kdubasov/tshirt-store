@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import {Badge, Button} from "react-bootstrap";
 import "./APPASelect.css";
 
-const APPASelect = ({handleChange,title,data,input}) => {
+const APPASelect = ({handleChange,title,data,input,nowData = false}) => {
 
-    const [selectValue, setSelectValue] = useState([]);
+    const [selectValue, setSelectValue] = useState(nowData ? nowData : []);
+    console.log(selectValue,"APPASelect nowData")
 
     const handleSelect = value => {
         const index = selectValue.indexOf(value)

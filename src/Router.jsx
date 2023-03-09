@@ -10,7 +10,7 @@ import SignUpPage from "./pages/SignUpPage/SignUpPage.jsx";
 import {
     LINK_ADMIN,
     LINK_ALL, LINK_CATEGORIES,
-    LINK_DEF,
+    LINK_DEF, LINK_FAVORITES_PAGE,
     LINK_LOGIN, LINK_PRODUCT_PAGE, LINK_PRODUCTS_LIST,
     LINK_RESET_PASS,
     LINK_SIGNUP,
@@ -22,6 +22,7 @@ import ResetPasswordPage from "./pages/ResetPasswordPage/ResetPasswordPage.jsx";
 import ProductPage from "./pages/ProductPage/ProductPage.jsx";
 import CategoriesPage from "./pages/CategoriesPage/CategoriesPage.jsx";
 import CategoryProductsPage from "./pages/CategoryProductsPage/CategoryProductsPage.jsx";
+import FavoritesPage from "./pages/FavoritesPage/FavoritesPage.jsx";
 
 const Router = () => {
     return (
@@ -47,6 +48,10 @@ const Router = () => {
                 <Route path={LINK_CATEGORIES} element={<CategoriesPage />} />
                 <Route path={LINK_PRODUCTS_LIST} element={<CategoryProductsPage />} />
                 <Route path={LINK_PRODUCT_PAGE} element={<ProductPage />} />
+                <Route
+                    path={LINK_FAVORITES_PAGE}
+                    element={<AuthCheckRoute children={<FavoritesPage />} />}
+                />
             </Routes>
         </div>
     );

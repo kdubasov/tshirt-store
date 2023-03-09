@@ -4,6 +4,7 @@ import {LINK_PRODUCT_PAGE_FNC} from "../../constants/links.js";
 import {Link} from "react-router-dom";
 import PCSlider from "./components/PCSlider/PCSlider.jsx";
 import {Badge} from "react-bootstrap";
+import PpFavoritesButton from "../../components/ProductPage/PPFavoritesButton/PPFavoritesButton.jsx";
 
 const ProductCard = ({data}) => {
 
@@ -23,6 +24,8 @@ const ProductCard = ({data}) => {
                     {data.availability ? "В наличии" : "Нет в наличии"}
                 </p>
             </div>
+
+            <PpFavoritesButton product={data} />
         </div>
     );
 };

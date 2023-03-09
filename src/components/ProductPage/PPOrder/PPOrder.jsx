@@ -4,6 +4,7 @@ import {PPSelectData} from "../data/PPSelectData.js";
 import PPSelectValue from "../PPSelectValue/PPSelectValue.jsx";
 import {Alert, Button} from "react-bootstrap";
 import "./PPOrder.css";
+import PpFavoritesButton from "../PPFavoritesButton/PPFavoritesButton.jsx";
 
 const PPOrder = ({data}) => {
 
@@ -61,9 +62,7 @@ const PPOrder = ({data}) => {
                 <Button variant={"secondary"} size={"sm"}>
                     Добавить в корзину
                 </Button>
-                <Button variant={"warning"} size={"sm"}>
-                    Добавить в избранное
-                </Button>
+                <PpFavoritesButton product={data} />
                 <Button variant={"success"} className={"w-100"} size={"sm"}>
                     Оформить заказ
                 </Button>

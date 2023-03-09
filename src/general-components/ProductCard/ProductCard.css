@@ -7,7 +7,7 @@
 }
 
 .ProductCard .content{
-    margin: 1em 0 0 0;
+    margin: 1em 0 .5em;
 }
 .ProductCard .title{
     margin-bottom: .5em;

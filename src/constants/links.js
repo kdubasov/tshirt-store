@@ -14,3 +14,5 @@ export const LINK_PRODUCT_PAGE_FNC = (categoryLink,productId) => {
 export const LINK_CATEGORY_PAGE_FNC = (categoryLink) => {
     return `/categories/${categoryLink}/products`;
 }
+
+export const LINK_FAVORITES_PAGE = "/favorites";

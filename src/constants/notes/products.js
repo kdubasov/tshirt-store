@@ -36,3 +36,17 @@ export const NT_ADD_PRODUCT_ERROR_REDACT = error => {
         variant: "danger",
     }
 }
+
+export const NT_FAVORITE_PRODUCT_ADD = {
+    show: true,
+    text: "Товар успешно добавлен в избранное!",
+    title: "Успешно!",
+    variant: "success",
+}
+
+export const NT_FAVORITE_PRODUCT_ADD_ERROR = {
+    show: true,
+    text: "Товар не добавлен в избранное!",
+    title: "Ошибка!",
+    variant: "danger",
+}

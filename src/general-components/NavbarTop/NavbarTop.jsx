@@ -3,6 +3,7 @@ import {Container, Nav, Navbar} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import "./NavbarTop.css";
 import {
+    LINK_BASKET_PAGE,
     LINK_CATEGORIES,
     LINK_DEF,
     LINK_FAVORITES_PAGE,
@@ -38,6 +39,7 @@ const NavbarTop = () => {
                         <>
                             <Link to={LINK_USER_PROFILE}>{user.email}</Link>
                             <Link to={LINK_FAVORITES_PAGE}>Избранное</Link>
+                            <Link to={LINK_BASKET_PAGE}>Корзина</Link>
                         </>
                     }
 

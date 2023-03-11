@@ -1,0 +1,47 @@
+.BPProductCard.card{
+    margin-bottom: .5em;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+/*slider*/
+.BPProductCard .PCSlider{
+    width: 35%;
+}
+
+/*content*/
+.BPProductCard .content{
+    margin-left: 1em;
+}
+
+/*info*/
+.BPProductCard .info{
+    margin-bottom: .5em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+/*price*/
+.BPProductCard .info .price{
+    margin: 0;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+}
+.BPProductCard .info .price .badge{
+    margin-left: .5em;
+    font-size: .4em;
+}
+
+/*order*/
+
+/*amount*/
+.BPProductCard .order .amount{
+    display: flex;
+    align-items: center;
+}
+.BPProductCard .order .amount span{
+    margin: 0 .25em;
+}

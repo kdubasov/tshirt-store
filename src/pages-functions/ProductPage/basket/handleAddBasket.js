@@ -12,6 +12,7 @@ export const handleAddBasket = data => {
             uid: data.user.uid,
             email: data.user.email,
         },
+        title: data.product.title,
         amount: 1,
         dateNoRedact: Date.now(),
         date: getDate(Date.now()),

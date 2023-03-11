@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button} from "react-bootstrap";
 import {useUserAuth} from "../../../context-providers/AuthContextProvider.jsx";
 import {handleAddFavorites} from "../../../pages-functions/ProductPage/favorites/handleAddFavorites.js";
@@ -15,9 +15,11 @@ const PpFavoritesButton = ({product}) => {
 
     const { user } = useUserAuth();
     const dispatch = useDispatch();
+    const [deleted, setDeleted] = useState(false);
 
     //products in favorites
-    const products = useGetFavorites(user.uid);
+    const products = useGetFavorites(user?.uid);
+    console.log(products,"products in favorites")
 
     //add
     const handleAdd = () => {
@@ -30,32 +32,52 @@ const PpFavoritesButton = ({product}) => {
     //delete
     const handleDelete = () => {
         handleDeleteRealtime(LINK_FAVORITES_PAGE + "/" + user.uid + "/" + product.id)
-            .then(() => dispatch(setNote(NT_DELETE)))
+            .then(() => {
+                setDeleted(true)
+                dispatch(setNote(NT_DELETE))
+            })
             .catch(() => dispatch(setNote(NT_DELETE_ERROR)))
             .finally(() => handleClearNotes(dispatch,3))
     }
 
     //if product in favorites return false error return true
     const checkAdded = () => {
-        if (!products.length) return true;
-        return !products.filter(elem => elem.id === product.id).length;
+        for (let elem of products){
+            if (elem.id === product.id) return false;
+        }
+        return true;
     }
 
 
+    //check user
+    if (!user) return;
+
     //jsx
+
+    //если товар был только чт удален
+    if (deleted) {
+        return (
+            <Button variant={"success"} disabled size={"sm"}>
+                Удалено!
+            </Button>
+        )
+    }
+
+    //если товар не добавлен в корзину
     if (checkAdded()){
         return (
             <Button variant={"warning"} size={"sm"} onClick={handleAdd}>
                 В избранное
             </Button>
         )
-    }else {
-        return (
-            <Button variant={"danger"} size={"sm"} onClick={handleDelete}>
-                Удалить из избранного
-            </Button>
-        );
     }
+
+    //если товар уже есть в корзине
+    return (
+        <Button variant={"danger"} size={"sm"} onClick={handleDelete}>
+            Удалить из избранного
+        </Button>
+    );
 };
 
 export default PpFavoritesButton;

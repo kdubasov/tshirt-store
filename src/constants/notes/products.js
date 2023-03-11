@@ -50,3 +50,24 @@ export const NT_FAVORITE_PRODUCT_ADD_ERROR = {
     title: "Ошибка!",
     variant: "danger",
 }
+
+export const NT_BASKET_ADD_ERROR_REQ = {
+    show: true,
+    text: "Вы должны заполнить все поля заказа для того чтобы добавить товар в корзину!",
+    title: "Ошибка!",
+    variant: "danger",
+}
+
+export const NT_BASKET_ADD_ERROR = {
+    show: true,
+    text: "Товар не добавлен в корзину!",
+    title: "Ошибка!",
+    variant: "danger",
+}
+
+export const NT_BASKET_ADD = {
+    show: true,
+    text: "Товар успешно добавлен в корзину!",
+    title: "Успешно!",
+    variant: "success",
+}

@@ -5,6 +5,7 @@ import PPSelectValue from "../PPSelectValue/PPSelectValue.jsx";
 import {Alert, Button} from "react-bootstrap";
 import "./PPOrder.css";
 import PpFavoritesButton from "../PPFavoritesButton/PPFavoritesButton.jsx";
+import PPBasketButton from "../PPBasketButton/PPBasketButton.jsx";
 
 const PPOrder = ({data}) => {
 
@@ -20,7 +21,7 @@ const PPOrder = ({data}) => {
         product: data,
         user: user,
     });
-    // console.log(orderData,"PPOrder");
+    console.log(orderData,"PPOrder");
 
     //redact form data
     const handleChange = (input,value) => {
@@ -32,11 +33,9 @@ const PPOrder = ({data}) => {
     //если юзер не авторизован то показываем табличку
     if (!user){
         return (
-            <div className={"PPOrder"}>
-                <Alert variant={"danger"} className={"m-0 p-2 small"}>
-                    Авторизуйтесь для возможности заказать товар
-                </Alert>
-            </div>
+            <Alert variant={"danger"} className={"m-0 p-2 small"}>
+                Авторизуйтесь для возможности заказать товар
+            </Alert>
         )
     }
 
@@ -59,9 +58,7 @@ const PPOrder = ({data}) => {
             <hr/>
 
             <div className="btn-container">
-                <Button variant={"secondary"} size={"sm"}>
-                    Добавить в корзину
-                </Button>
+                <PPBasketButton orderData={orderData} />
                 <PpFavoritesButton product={data} />
                 <Button variant={"success"} className={"w-100"} size={"sm"}>
                     Оформить заказ

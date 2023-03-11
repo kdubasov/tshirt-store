@@ -6,7 +6,7 @@ import "./NotesAlert.css";
 const NotesAlert = () => {
 
     const data = useSelector(state => state.notifications.data);
-    console.log(data)
+    // console.log(data,"NotesAlert");
 
     if(data["show"])
     return (

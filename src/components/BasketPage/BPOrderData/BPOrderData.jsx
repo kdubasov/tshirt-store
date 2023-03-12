@@ -4,30 +4,13 @@ import {getCutWord} from "../../../general-functions/getCutWord.js";
 import {getSalePrice} from "../../../general-functions/getSalePrice.js";
 import {Badge, Button} from "react-bootstrap";
 import {useUserAuth} from "../../../context-providers/AuthContextProvider.jsx";
+import {getTotalPrice} from "../../../pages-functions/ProductPage/basket/getTotalPrice.js";
 
 const BPOrderData = ({basketData}) => {
 
     const { user } = useUserAuth();
 
     // console.log(basketData,"BPOrderData");
-
-    //total price and sale for order
-    const getTotalPrice = () => {
-        let price = 0;
-        let sale = 0;
-        for (let elem of basketData){
-            const priceInner = +elem.product.price;
-            const saleInner = +elem.product.sale;
-            const priceSale = getSalePrice(priceInner,saleInner);
-            price += +priceSale * elem.amount;
-            sale += (priceInner - priceSale) * elem.amount;
-        }
-
-        return {
-            price: price.toFixed(2),
-            sale: sale.toFixed(2)
-        };
-    }
 
     if (!basketData.length){
         return (
@@ -61,11 +44,11 @@ const BPOrderData = ({basketData}) => {
             </div>
             <div className="sale">
                 <h5>Итоговая скидка:</h5>
-                <Badge>{getTotalPrice().sale}₽</Badge>
+                <Badge>{getTotalPrice(basketData).sale}₽</Badge>
             </div>
             <div className="price">
                 <h5>Итоговая цена:</h5>
-                <Badge>{getTotalPrice().price}₽</Badge>
+                <Badge>{getTotalPrice(basketData).price}₽</Badge>
             </div>
 
             {

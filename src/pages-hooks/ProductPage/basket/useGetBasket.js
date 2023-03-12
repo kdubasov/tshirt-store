@@ -2,16 +2,17 @@ import {realtimeDB} from "../../../database/firebase-connect";
 import {ref,onValue} from "firebase/database";
 import React, {useEffect, useState} from "react";
 import {LINK_BASKET_PAGE} from "../../../constants/links.js";
+import {useUserAuth} from "../../../context-providers/AuthContextProvider.jsx";
 
 //for get data from realtime database
-export const useGetBasket = userUid =>{
+export const useGetBasket = () =>{
 
-    const databaseUrl = LINK_BASKET_PAGE + "/" + userUid;
+    const { user } = useUserAuth();
+    const databaseUrl = LINK_BASKET_PAGE + "/" + user.uid;
     const [data,setData] = useState([])
 
     useEffect(() =>{
         onValue(ref(realtimeDB, databaseUrl),snapshot => {
-
             const dataInner = snapshot.val();
             if (dataInner){
                 setData(Object.values(dataInner))
@@ -19,8 +20,7 @@ export const useGetBasket = userUid =>{
                 return []
             }
         })
-        // eslint-disable-next-line
-    },[])
+    },[user.uid])
 
     return data;
 }

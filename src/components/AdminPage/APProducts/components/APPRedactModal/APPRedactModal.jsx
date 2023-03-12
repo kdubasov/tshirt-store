@@ -15,7 +15,6 @@ const AppRedactModal = ({show,onHide,data}) => {
 
     //product data in state
     const [product,setProduct] = useState(data);
-    console.log(product);
 
     //change state data
     const handleChange = (input,value) => {

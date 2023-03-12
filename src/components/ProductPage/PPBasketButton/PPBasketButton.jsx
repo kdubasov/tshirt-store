@@ -19,7 +19,7 @@ const PPBasketButton = ({orderData}) => {
     const { user } = useUserAuth();
 
     //basket data for user
-    const basketData = useGetBasket(user?.uid);
+    const basketData = useGetBasket();
     console.log(basketData,"basketData")
 
     //add product

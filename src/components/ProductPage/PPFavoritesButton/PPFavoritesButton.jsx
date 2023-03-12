@@ -18,7 +18,7 @@ const PpFavoritesButton = ({product}) => {
     const [deleted, setDeleted] = useState(false);
 
     //products in favorites
-    const products = useGetFavorites(user?.uid);
+    const products = useGetFavorites();
     console.log(products,"products in favorites")
 
     //add

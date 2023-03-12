@@ -1,14 +1,13 @@
 import React from 'react';
 import {Badge, Container} from "react-bootstrap";
 import {useGetFavorites} from "../../pages-hooks/ProductPage/favorites/useGetFavorites.js";
-import {useUserAuth} from "../../context-providers/AuthContextProvider.jsx";
 import ProductCard from "../../general-components/ProductCard/ProductCard.jsx";
 import "./FavoritesPage.css";
 
 const FavoritesPage = () => {
 
-    const { user } = useUserAuth();
-    const data = useGetFavorites(user.uid);
+    //data favorites products from database
+    const data = useGetFavorites();
 
     return (
         <Container className={"FavoritesPage py-3"}>

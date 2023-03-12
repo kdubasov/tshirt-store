@@ -1,0 +1,16 @@
+.BasketPage .content{
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/*products*/
+.BasketPage .products-container{
+    width: calc(60% - 1em);
+}
+
+/*order*/
+.BasketPage .order-container{
+    width: calc(40% - 1em);
+}

@@ -1,0 +1,19 @@
+.BPOrderData{
+    width: 100%;
+    padding: 1em;
+    border: 1px solid var(--bs-gray-400);
+    border-radius: 5px;
+}
+
+.BPOrderData p,
+.BPOrderData h5{
+    margin: 0;
+}
+.BPOrderData .products,
+.BPOrderData .sale{
+    margin-bottom: .5em;
+}
+.BPOrderData .products .product-text{
+    display: flex;
+    justify-content: space-between;
+}

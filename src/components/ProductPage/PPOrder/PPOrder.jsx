@@ -6,6 +6,8 @@ import {Alert, Button} from "react-bootstrap";
 import "./PPOrder.css";
 import PpFavoritesButton from "../PPFavoritesButton/PPFavoritesButton.jsx";
 import PPBasketButton from "../PPBasketButton/PPBasketButton.jsx";
+import {Link} from "react-router-dom";
+import {LINK_BASKET_PAGE} from "../../../constants/links.js";
 
 const PPOrder = ({data}) => {
 
@@ -60,9 +62,11 @@ const PPOrder = ({data}) => {
             <div className="btn-container">
                 <PPBasketButton orderData={orderData} />
                 <PpFavoritesButton product={data} />
-                <Button variant={"success"} className={"w-100"} size={"sm"}>
-                    Оформить заказ
-                </Button>
+                <Link className={"w-100"} to={LINK_BASKET_PAGE}>
+                    <Button variant={"success"} className={"w-100"} size={"sm"}>
+                        Оформить заказ
+                    </Button>
+                </Link>
             </div>
 
         </div>

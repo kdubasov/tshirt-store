@@ -1,0 +1,6 @@
+.UserOrders{
+    margin-top: .5em;
+    padding: 1em;
+    border: 1px solid var(--bs-gray-300);
+    border-radius: 5px;
+}

@@ -35,7 +35,7 @@ const BasketPage = () => {
                 </div>
 
                 <div className="order-container">
-                    <BPOrderData basketData={basketData} />
+                    <BPOrderData basketData={basketData} showButton={true} />
                 </div>
             </div>
         </Container>

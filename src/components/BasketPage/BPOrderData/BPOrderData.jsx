@@ -5,8 +5,10 @@ import {getSalePrice} from "../../../general-functions/getSalePrice.js";
 import {Badge, Button} from "react-bootstrap";
 import {useUserAuth} from "../../../context-providers/AuthContextProvider.jsx";
 import {getTotalPrice} from "../../../pages-functions/ProductPage/basket/getTotalPrice.js";
+import {Link} from "react-router-dom";
+import {LINK_ORDER_PAGE} from "../../../constants/links.js";
 
-const BPOrderData = ({basketData}) => {
+const BPOrderData = ({basketData,showButton}) => {
 
     const { user } = useUserAuth();
 
@@ -52,13 +54,18 @@ const BPOrderData = ({basketData}) => {
             </div>
 
             {
-                user.emailVerified ?
-                    <Button className={"w-100 mt-3"} size={"lg"}>
-                        Оформить заказ
-                    </Button>:
-                    <Button variant={"secondary"} disabled className={"w-100 mt-3"} size={"lg"}>
-                        Подтвердите ваш email
-                    </Button>
+                showButton &&
+                (
+                    user.emailVerified ?
+                        <Link to={LINK_ORDER_PAGE}>
+                            <Button className={"w-100 mt-3"} size={"lg"}>
+                                Оформить заказ
+                            </Button>
+                        </Link> :
+                        <Button variant={"secondary"} disabled className={"w-100 mt-3"} size={"lg"}>
+                            Подтвердите ваш email
+                        </Button>
+                )
             }
         </div>
     );

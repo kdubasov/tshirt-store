@@ -8,6 +8,7 @@ import {setNote} from "../../redux-store/slices/notificationsSlice.js";
 import {NT_AUTH_EMAIL_VERIFY, NT_AUTH_EMAIL_VERIFY_ERROR} from "../../constants/notes/auth.js";
 import {handleClearNotes} from "../../general-functions/redux-functions/handleClearNotes.js";
 import UpdatePassword from "../../components/UserProfilePage/UpdatePassword/UpdatePassword.jsx";
+import UserOrders from "../../components/UserProfilePage/UserOrders/UserOrders.jsx";
 
 const UserProfilePage = () => {
 
@@ -42,6 +43,9 @@ const UserProfilePage = () => {
                 <ListGroupItem>{user?.metadata?.creationTime}</ListGroupItem>
             </ListGroup>
 
+            {/*orders*/}
+            <UserOrders />
+
             <div className="d-flex border p-3 mt-2 border">
                 <Button onClick={handleLogOut} size={"sm"} variant={"danger"}>
                     Выйти
@@ -59,6 +63,7 @@ const UserProfilePage = () => {
                     </Button>
                 }
 
+                {/*update password component*/}
                 <UpdatePassword />
             </div>
         </Container>

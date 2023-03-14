@@ -11,7 +11,7 @@ import {
     LINK_ADMIN,
     LINK_ALL, LINK_BASKET_PAGE, LINK_CATEGORIES,
     LINK_DEF, LINK_FAVORITES_PAGE,
-    LINK_LOGIN, LINK_PRODUCT_PAGE, LINK_PRODUCTS_LIST,
+    LINK_LOGIN, LINK_ORDER_PAGE, LINK_PRODUCT_PAGE, LINK_PRODUCTS_LIST,
     LINK_RESET_PASS,
     LINK_SIGNUP,
     LINK_USER_PROFILE
@@ -24,6 +24,7 @@ import CategoriesPage from "./pages/CategoriesPage/CategoriesPage.jsx";
 import CategoryProductsPage from "./pages/CategoryProductsPage/CategoryProductsPage.jsx";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage.jsx";
 import BasketPage from "./pages/BasketPage/BasketPage.jsx";
+import OrderPage from "./pages/OrderPage/OrderPage.jsx";
 
 const Router = () => {
     return (
@@ -56,6 +57,10 @@ const Router = () => {
                 <Route
                     path={LINK_BASKET_PAGE}
                     element={<AuthCheckRoute children={<BasketPage />} />}
+                />
+                <Route
+                    path={LINK_ORDER_PAGE}
+                    element={<AuthCheckRoute children={<OrderPage />} />}
                 />
             </Routes>
         </div>

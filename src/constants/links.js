@@ -16,3 +16,5 @@ export const LINK_CATEGORY_PAGE_FNC = (categoryLink) => {
 }
 export const LINK_FAVORITES_PAGE = "/favorites";
 export const LINK_BASKET_PAGE = "/basket";
+
+export const LINK_ORDER_PAGE = "/order";

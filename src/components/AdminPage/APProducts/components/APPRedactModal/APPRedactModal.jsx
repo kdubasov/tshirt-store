@@ -83,7 +83,21 @@ const AppRedactModal = ({show,onHide,data}) => {
                         ))
                     }
 
-                    <Button type={"submit"} variant={"success"} className={"w-100"} size={"sm"}>
+                    <Form.Check
+                        type="switch"
+                        label="Скрыть товар"
+                        checked={product.hide}
+                        onChange={() => handleChange("hide",!product.hide)}
+                    />
+
+                    <Form.Check
+                        type="switch"
+                        label="Товар в наличии"
+                        checked={product.availability}
+                        onChange={() => handleChange("availability",!product.availability)}
+                    />
+
+                    <Button type={"submit"} variant={"success"} className={"w-100 mt-3"} size={"sm"}>
                         Подтвердить изменения
                     </Button>
                 </Form>

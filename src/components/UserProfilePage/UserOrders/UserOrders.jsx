@@ -7,7 +7,7 @@ import UoOrderCard from "./components/UOOrderCard/UOOrderCard.jsx";
 const UserOrders = () => {
 
     const dataOrders = useGetUserOrder();
-    console.log(dataOrders)
+    // console.log(dataOrders);
 
     //check orders length
     if (!dataOrders.length) return;

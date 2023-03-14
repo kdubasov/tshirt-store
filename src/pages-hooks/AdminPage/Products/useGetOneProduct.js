@@ -1,16 +1,14 @@
 import {realtimeDB} from "../../../database/firebase-connect";
 import {ref,onValue} from "firebase/database";
 import React, {useEffect, useState} from "react";
-import {LINK_PRODUCT_PAGE_FNC} from "../../../constants/links.js";
 
 //for get data from realtime database
-export const useGetOneProduct = productData => {
+export const useGetOneProduct = productLink => {
 
-    const databaseUrl = LINK_PRODUCT_PAGE_FNC(productData.category, productData.product);
     const [data,setData] = useState({})
 
     useEffect(() =>{
-        onValue(ref(realtimeDB, databaseUrl),snapshot => {
+        onValue(ref(realtimeDB, productLink),snapshot => {
             const dataInner = snapshot.val();
             if (dataInner){
                 setData(dataInner)

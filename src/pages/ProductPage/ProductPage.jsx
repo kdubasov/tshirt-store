@@ -1,7 +1,6 @@
 import React from 'react';
 import {useLocation} from "react-router-dom";
 import {Badge, Container} from "react-bootstrap";
-import {getProductFromPath} from "../../general-functions/getProductFromPath.js";
 import {useGetOneProduct} from "../../pages-hooks/AdminPage/Products/useGetOneProduct.js";
 import PCSlider from "../../general-components/ProductCard/components/PCSlider/PCSlider.jsx";
 import "./ProductPage.css";
@@ -11,8 +10,7 @@ import PPAdditionalData from "../../components/ProductPage/PPAdditionalData/PPAd
 const ProductPage = () => {
 
     const location = useLocation();
-    const locationSorted = getProductFromPath(location.pathname);
-    const productData = useGetOneProduct(locationSorted);
+    const productData = useGetOneProduct(location.pathname);
 
     if (Boolean(Object.values(productData).length))
     return (

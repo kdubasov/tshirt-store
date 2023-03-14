@@ -23,7 +23,7 @@ const PPOrder = ({data}) => {
         product: data,
         user: user,
     });
-    console.log(orderData,"PPOrder");
+    // console.log(orderData,"PPOrder");
 
     //redact form data
     const handleChange = (input,value) => {

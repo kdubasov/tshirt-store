@@ -5,6 +5,7 @@ import {useUserAuth} from "../../context-providers/AuthContextProvider.jsx";
 import {checkAdmin} from "../../pages-functions/AdminPage/checkAdmin.js";
 import NotFoundPage from "../NotFoundPage/NotFoundPage.jsx";
 import APProducts from "../../components/AdminPage/APProducts/APProducts.jsx";
+import APOrders from "../../components/AdminPage/APOrders/APOrders.jsx";
 
 const AdminPage = () => {
 
@@ -19,6 +20,9 @@ const AdminPage = () => {
                 <hr/>
 
                 <APProducts />
+                <hr/>
+
+                <APOrders />
                 <hr/>
 
             </Container>

@@ -7,10 +7,12 @@ import {useUserAuth} from "../../../context-providers/AuthContextProvider.jsx";
 import {getTotalPrice} from "../../../pages-functions/ProductPage/basket/getTotalPrice.js";
 import {Link} from "react-router-dom";
 import {LINK_ORDER_PAGE} from "../../../constants/links.js";
+import {checkAdmin} from "../../../pages-functions/AdminPage/checkAdmin.js";
 
 const BPOrderData = ({basketData,showButton}) => {
 
     const { user } = useUserAuth();
+    const admin = checkAdmin(user);
 
     // console.log(basketData,"BPOrderData");
 
@@ -29,6 +31,8 @@ const BPOrderData = ({basketData,showButton}) => {
         );
     }
 
+    //"/categories/unisex/products/product-1678022006562"
+
     return (
         <div className={"BPOrderData"}>
             <div className="products">
@@ -37,7 +41,13 @@ const BPOrderData = ({basketData,showButton}) => {
                     {
                         basketData.map(elem => (
                             <p key={elem.product.id} className={"product-text"}>
-                                {getCutWord(elem.title,18)} ({elem.amount}шт)
+                                {
+                                    admin ?
+                                        <Link to={elem.product.databaseURL}>
+                                            {elem.title} ({elem.amount}шт)
+                                        </Link>:
+                                        <>{getCutWord(elem.title,18)} ({elem.amount}шт)</>
+                                }
                                 <b>{getSalePrice(elem.product.price,elem.product.sale)}₽</b>
                             </p>
                         ))

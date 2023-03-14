@@ -4,6 +4,8 @@
 .PPMainContent h4.title{
     font-weight: 600;
     opacity: .75;
+    margin-bottom: 0;
+    line-height: 1;
 }
 .PPMainContent .price-inner{
     display: flex;

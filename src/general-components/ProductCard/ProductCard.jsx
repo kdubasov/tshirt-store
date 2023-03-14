@@ -1,6 +1,5 @@
 import React from 'react';
 import "./ProductCard.css";
-import {LINK_PRODUCT_PAGE_FNC} from "../../constants/links.js";
 import {Link} from "react-router-dom";
 import PCSlider from "./components/PCSlider/PCSlider.jsx";
 import {Badge} from "react-bootstrap";
@@ -8,12 +7,15 @@ import PpFavoritesButton from "../../components/ProductPage/PPFavoritesButton/PP
 
 const ProductCard = ({data}) => {
 
+    //если товар скрыт то не показываем его
+    if (data.hide) return;
+
     return (
         <div className={"ProductCard"}>
             <PCSlider productId={data.id} />
 
             <div className="content">
-                <Link to={LINK_PRODUCT_PAGE_FNC(data.category, data.id)}>
+                <Link to={data.databaseURL}>
                     <h6 className={"title"}>{data.title}</h6>
                 </Link>
                 <h3 className={"price"}>

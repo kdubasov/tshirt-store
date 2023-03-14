@@ -20,6 +20,8 @@ export const handleAddProduct = (data, dispatch, navigate) => {
         databaseURL: databaseURL,
         //наличие
         availability: true,
+        //скрыть
+        hide: false,
     })
         .then(() => handleAddImages(data, productId))
         .then(() => {

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import "./APPLItem.css";
 import {Link} from "react-router-dom";
-import {LINK_PRODUCT_PAGE_FNC} from "../../../../../../../constants/links.js";
 import {Button, ButtonGroup, ListGroup, ListGroupItem} from "react-bootstrap";
 import DeleteModal from "../../../../../../../general-components/DeleteModal/DeleteModal.jsx";
 import APPRedactModal from "../../../APPRedactModal/APPRedactModal.jsx";
@@ -17,7 +16,7 @@ const APPLItem = ({data}) => {
     return (
         <>
             <div className={"APPLItem"}>
-                <Link to={LINK_PRODUCT_PAGE_FNC(data.category, data.id)}>
+                <Link to={data.databaseURL}>
                     {data.title}
                 </Link>
 

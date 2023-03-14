@@ -19,7 +19,7 @@ const PpFavoritesButton = ({product}) => {
 
     //products in favorites
     const products = useGetFavorites();
-    console.log(products,"products in favorites")
+    // console.log(products,"products in favorites");
 
     //add
     const handleAdd = () => {

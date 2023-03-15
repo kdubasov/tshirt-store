@@ -14,9 +14,7 @@ const BasketPage = () => {
         return (
             <Container className={"BasketPage py-3"}>
                 <Badge>Корзина</Badge>
-                <p className="opacity-75">
-                    Корзина пуста
-                </p>
+                <h6>Корзина пуста</h6>
             </Container>
         )
     }

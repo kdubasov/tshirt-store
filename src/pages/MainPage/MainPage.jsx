@@ -6,9 +6,7 @@ const MainPage = () => {
 
     return (
         <Container className={"MainPage py-3"}>
-            <Badge className={"mb-3"}>
-                <h3 className={"m-0"}>Главная страница</h3>
-            </Badge>
+            <Badge className={"mb-1"}>Главная страница</Badge>
 
             <GeneralSearch />
         </Container>

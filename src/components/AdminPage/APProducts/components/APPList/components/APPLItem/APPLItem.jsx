@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "./APPLItem.css";
 import {Link} from "react-router-dom";
-import {Button, ButtonGroup, ListGroup, ListGroupItem} from "react-bootstrap";
+import {Badge, Button, ButtonGroup, ListGroup, ListGroupItem} from "react-bootstrap";
 import DeleteModal from "../../../../../../../general-components/DeleteModal/DeleteModal.jsx";
 import APPRedactModal from "../../../APPRedactModal/APPRedactModal.jsx";
 
@@ -16,9 +16,9 @@ const APPLItem = ({data}) => {
     return (
         <>
             <div className={"APPLItem"}>
-                <Link to={data.databaseURL}>
-                    {data.title}
-                </Link>
+                <Link to={data.databaseURL}>{data.title}</Link>
+
+                {data.hide && <Badge bg={"danger"}>Скрыт</Badge>}
 
                 <ListGroup>
                     <ListGroupItem>

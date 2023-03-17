@@ -4,8 +4,11 @@ import {Link} from "react-router-dom";
 import PCSlider from "./components/PCSlider/PCSlider.jsx";
 import {Badge} from "react-bootstrap";
 import PpFavoritesButton from "../../components/ProductPage/PPFavoritesButton/PPFavoritesButton.jsx";
+import {useUserAuth} from "../../context-providers/AuthContextProvider.jsx";
 
 const ProductCard = ({data}) => {
+
+    const { user } = useUserAuth();
 
     //если товар скрыт то не показываем его
     if (data.hide) return;
@@ -27,7 +30,10 @@ const ProductCard = ({data}) => {
                 </p>
             </div>
 
-            <PpFavoritesButton product={data} />
+            {
+                user &&
+                <PpFavoritesButton product={data} />
+            }
         </div>
     );
 };

@@ -39,7 +39,7 @@ const UoOrderCard = ({data}) => {
             }
 
             {/*если заказ был отменен то показываем табличку что он был отменен*/}
-            <UoCanceledAlert data={data} />
+            <UoCanceledAlert admin={admin} data={data} />
 
             <p className={"text-container"}>
                 {getText("Дата",data.date)}
@@ -47,7 +47,7 @@ const UoOrderCard = ({data}) => {
             </p>
 
             {//смена статуса для заказа (только для админа)
-                admin &&
+                admin && !data.hide &&
                 <div className={"p-3 my-3 border border-5"}>
                     <label>Изменить статус заказа</label>
                     <Form.Select value={data.status} onChange={e => handleSetStatus(e.target.value)}>

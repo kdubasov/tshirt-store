@@ -60,11 +60,14 @@ const PPOrder = ({data}) => {
             <hr/>
 
             <div className="btn-container">
+                {/*кнопка добавления в корзину*/}
                 <PPBasketButton orderData={orderData} />
+                {/*кнопка добавления в избранное*/}
                 <PpFavoritesButton product={data} />
+
                 <Link className={"w-100"} to={LINK_BASKET_PAGE}>
                     <Button variant={"success"} className={"w-100"} size={"sm"}>
-                        Оформить заказ
+                        Перейти к корзине
                     </Button>
                 </Link>
             </div>

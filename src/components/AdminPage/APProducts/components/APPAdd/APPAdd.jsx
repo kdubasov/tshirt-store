@@ -42,7 +42,7 @@ const APPAdd = () => {
 
     const handleAdd = e => {
         e.preventDefault()
-        console.log(productData)
+        // console.log(productData);
 
         //проверям все ли поля заполнены
         if (!checkProductInputs(productData,dispatch)){

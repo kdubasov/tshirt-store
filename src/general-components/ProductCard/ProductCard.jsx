@@ -23,7 +23,7 @@ const ProductCard = ({data}) => {
                 </Link>
                 <h3 className={"price"}>
                     {data.price}₽
-                    {data.sale && <Badge>-{data.sale}%</Badge>}
+                    {Boolean(+data.sale) && <Badge>-{data.sale}%</Badge>}
                 </h3>
                 <p className="small opacity-50 m-0">
                     {data.availability ? "В наличии" : "Нет в наличии"}

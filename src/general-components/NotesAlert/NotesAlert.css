@@ -3,12 +3,29 @@
     left: 10px;
     bottom: 10px;
 
-    width: 300px;
-    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
     /*modal z-index +1*/
     z-index: 1051;
 }
 
-.NotesAlert p.small{
-    margin: 0;
+/*note*/
+.NotesAlert .note{
+    margin-bottom: .5em;
+}
+.NotesAlert .note:last-child{
+    margin-bottom: 0;
+}
+
+.NotesAlert .variant-block{
+    width: 20px;
+    height: 20px;
+    margin-right: .5em;
+    border-radius: 5px;
+}
+.NotesAlert .variant-block.success{
+    background: var(--bs-green);
+}
+.NotesAlert .variant-block.danger{
+    background: var(--bs-red);
 }

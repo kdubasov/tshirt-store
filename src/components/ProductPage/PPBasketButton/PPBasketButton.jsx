@@ -27,14 +27,14 @@ const PPBasketButton = ({orderData}) => {
 
         if (!checkOrderData(orderData)){//check order data
             dispatch(setNote(NT_BASKET_ADD_ERROR_REQ))
-            handleClearNotes(dispatch,4)
+            handleClearNotes(dispatch,5)
             return;
         }
 
         handleAddBasket(orderData)
             .then(() => dispatch(setNote(NT_BASKET_ADD)))
             .catch(() => dispatch(setNote(NT_BASKET_ADD_ERROR)))
-            .finally(() => handleClearNotes(dispatch,3))
+            .finally(() => handleClearNotes(dispatch,5))
     }
 
 

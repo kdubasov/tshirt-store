@@ -18,7 +18,7 @@ const UoCancelOrder = ({data}) => {
         handleCancelOrder(data, false)
             .then(() => dispatch(setNote(NT_ORDER_CANCEL)))
             .catch(() => dispatch(setNote(NT_ORDER_CANCEL_ERROR)))
-            .finally(() => handleClearNotes(dispatch,3))
+            .finally(() => handleClearNotes(dispatch,5))
     }
 
     return (

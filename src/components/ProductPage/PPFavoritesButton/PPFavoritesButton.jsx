@@ -26,7 +26,7 @@ const PpFavoritesButton = ({product}) => {
         handleAddFavorites(user, product)
             .then(() => dispatch(setNote(NT_FAVORITE_PRODUCT_ADD)))
             .catch(() => dispatch(setNote(NT_FAVORITE_PRODUCT_ADD_ERROR)))
-            .finally(() => handleClearNotes(dispatch,3))
+            .finally(() => handleClearNotes(dispatch,5))
     }
 
     //delete
@@ -37,7 +37,7 @@ const PpFavoritesButton = ({product}) => {
                 dispatch(setNote(NT_DELETE))
             })
             .catch(() => dispatch(setNote(NT_DELETE_ERROR)))
-            .finally(() => handleClearNotes(dispatch,3))
+            .finally(() => handleClearNotes(dispatch,5))
     }
 
     //if product in favorites return false error return true

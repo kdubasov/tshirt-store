@@ -9,13 +9,13 @@ export const checkPassword = (dispatch, pass, passConfirm) => {
     //check password confirm
     if (pass !== passConfirm){
         dispatch(setNote(NT_AUTH_SIGNUP_PASS_ERROR))
-        handleClearNotes(dispatch,3)
+        handleClearNotes(dispatch,5)
         return false;
     }
     //check password length
     if (pass.length < 8){
         dispatch(setNote(NT_AUTH_SIGNUP_PASS_CHARS_ERROR))
-        handleClearNotes(dispatch,3)
+        handleClearNotes(dispatch,5)
         return false;
     }
 

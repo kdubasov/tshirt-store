@@ -1,12 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    data: {
-        show: false,
-        title: null,
-        text: null,
-        variant: null,
-    },
+    data: [],
 }
 
 export const notificationsSlice = createSlice({
@@ -14,10 +9,10 @@ export const notificationsSlice = createSlice({
     initialState,
     reducers:{
         setNote:(state,action) => {
-            state.data = action.payload;
+            state.data.push(action.payload);
         },
         clearNote:(state) => {
-            state.data = initialState.data;
+            state.data.pop();
         }
     },
 })

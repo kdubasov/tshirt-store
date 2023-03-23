@@ -6,6 +6,7 @@ import PCSlider from "../../general-components/ProductCard/components/PCSlider/P
 import "./ProductPage.css";
 import PPMainContent from "../../components/ProductPage/PPMainContent/PPMainContent.jsx";
 import PPAdditionalData from "../../components/ProductPage/PPAdditionalData/PPAdditionalData.jsx";
+import PPNewReview from "../../components/ProductPage/PPNewReview/PPNewReview.jsx";
 
 const ProductPage = () => {
 
@@ -22,6 +23,7 @@ const ProductPage = () => {
                 <PPMainContent data={productData} />
             </div>
 
+            <PPNewReview />
             <PPAdditionalData data={productData} />
         </Container>
     );

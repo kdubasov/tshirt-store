@@ -71,3 +71,19 @@ export const NT_BASKET_ADD = {
     title: "Успешно!",
     variant: "success",
 }
+
+export const NT_REVIEW_ADD = {
+    show: true,
+    text: "Отзыв успешно отправлен!",
+    title: "Успешно!",
+    variant: "success",
+}
+
+export const NT_REVIEW_ERROR = error => {
+    return {
+        show: true,
+        text: error,
+        title: "Ошибка!",
+        variant: "danger",
+    }
+}

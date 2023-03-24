@@ -10,3 +10,9 @@
     width: 50%;
     height: 400px;
 }
+
+.ProductPage .reviews-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}

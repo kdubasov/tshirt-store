@@ -1,5 +1,5 @@
 .PPNewReview{
-    width: 50%;
+    width: calc(45% - 1em);
     padding: 1em;
     border-radius: .5em;
     border: 1px solid var(--bs-gray-300);

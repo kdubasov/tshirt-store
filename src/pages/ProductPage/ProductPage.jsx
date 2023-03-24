@@ -7,6 +7,7 @@ import "./ProductPage.css";
 import PPMainContent from "../../components/ProductPage/PPMainContent/PPMainContent.jsx";
 import PPAdditionalData from "../../components/ProductPage/PPAdditionalData/PPAdditionalData.jsx";
 import PPNewReview from "../../components/ProductPage/PPNewReview/PPNewReview.jsx";
+import PPListReviews from "../../components/ProductPage/PPListReviews/PPListReviews.jsx";
 
 const ProductPage = () => {
 
@@ -23,8 +24,13 @@ const ProductPage = () => {
                 <PPMainContent data={productData} />
             </div>
 
-            <PPNewReview />
             <PPAdditionalData data={productData} />
+
+            <h3>Отзывы</h3>
+            <div className="reviews-container">
+                <PPNewReview data={productData} />
+                <PPListReviews data={productData} />
+            </div>
         </Container>
     );
 };

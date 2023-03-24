@@ -6,6 +6,7 @@ import {checkAdmin} from "../../pages-functions/AdminPage/checkAdmin.js";
 import NotFoundPage from "../NotFoundPage/NotFoundPage.jsx";
 import APProducts from "../../components/AdminPage/APProducts/APProducts.jsx";
 import APOrders from "../../components/AdminPage/APOrders/APOrders.jsx";
+import APReviews from "../../components/AdminPage/APReviews/APReviews.jsx";
 
 const AdminPage = () => {
 
@@ -23,6 +24,9 @@ const AdminPage = () => {
                 <hr/>
 
                 <APOrders />
+                <hr/>
+
+                <APReviews />
                 <hr/>
 
             </Container>

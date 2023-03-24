@@ -14,7 +14,10 @@ const DeleteModal = ({show,onHide,data}) => {
         handleDeleteRealtime(data.databaseURL)
             .then(() => dispatch(setNote(NT_DELETE)))
             .catch(() => dispatch(setNote(NT_DELETE_ERROR)))
-            .finally(() => handleClearNotes(dispatch,5))
+            .finally(() => {
+                onHide();
+                handleClearNotes(dispatch,6);
+            })
     }
 
     return (

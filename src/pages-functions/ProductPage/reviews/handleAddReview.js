@@ -9,5 +9,6 @@ export const handleAddReview = data => {
         ...data,
         date: getDate(Date.now()),
         dateNoRedact: Date.now(),
+        title: "Отзыв",
     })
 }

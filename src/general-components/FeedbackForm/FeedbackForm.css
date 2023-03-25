@@ -1,0 +1,7 @@
+.FeedbackForm{
+    width: 50%;
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: .5em;
+    border: 1px solid var(--bs-gray-300);
+}

@@ -1,0 +1,7 @@
+.APFItem{
+    width: calc(50% - .25em);
+    margin: .25em 0;
+    padding: .5em;
+    border-radius: .5em;
+    border: 1px solid var(--bs-gray-300);
+}

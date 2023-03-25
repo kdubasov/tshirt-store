@@ -7,6 +7,7 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage.jsx";
 import APProducts from "../../components/AdminPage/APProducts/APProducts.jsx";
 import APOrders from "../../components/AdminPage/APOrders/APOrders.jsx";
 import APReviews from "../../components/AdminPage/APReviews/APReviews.jsx";
+import APFeedback from "../../components/AdminPage/APFeedback/APFeedback.jsx";
 
 const AdminPage = () => {
 
@@ -27,6 +28,9 @@ const AdminPage = () => {
                 <hr/>
 
                 <APReviews />
+                <hr/>
+
+                <APFeedback />
                 <hr/>
 
             </Container>

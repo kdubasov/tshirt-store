@@ -11,3 +11,19 @@ export const NT_DELETE_ERROR = {
     title: "Ошибка!",
     variant: "danger",
 }
+
+export const NT_FEEDBACK = {
+    show: true,
+    text: "Форма успешно отправлена.",
+    title: "Успешно!",
+    variant: "success",
+}
+
+export const NT_FEEDBACK_ERROR = error => {
+    return {
+        show: true,
+        text: error,
+        title: "Ошибка отправки формы!",
+        variant: "danger",
+    }
+}

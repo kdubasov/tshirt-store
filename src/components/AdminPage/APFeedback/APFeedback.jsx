@@ -12,10 +12,11 @@ const APFeedback = () => {
         <div className={"APFeedback"}>
             <h5><Badge>Сообщения с ФОС ({data.length})</Badge></h5>
 
-            {!data.length && <p>Сообщений нет</p>}
+            {!data.length && <h6>Сообщений нет</h6>}
 
             <div className="content">
                 {
+                    !!data.length &&
                     data.map(elem => (
                         <APFItem key={elem.databaseURL} data={elem} />
                     ))

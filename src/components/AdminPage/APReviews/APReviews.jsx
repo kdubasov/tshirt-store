@@ -10,7 +10,7 @@ const APReviews = () => {
 
     return (
         <div className={"APReviews"}>
-            <h5><Badge>Отзывы</Badge></h5>
+            <h5><Badge>Отзывы ({listReviews.length})</Badge></h5>
 
             {
                 !listReviews.length &&
@@ -18,7 +18,7 @@ const APReviews = () => {
             }
 
             {
-                listReviews.length &&
+                !!listReviews.length &&
                 listReviews.map(elem => (
                     <PPReviewsItem key={elem.databaseURL} data={elem} />
                 ))

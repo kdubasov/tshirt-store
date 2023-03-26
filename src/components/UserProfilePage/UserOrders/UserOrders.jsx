@@ -7,7 +7,7 @@ import UoOrderCard from "./components/UOOrderCard/UOOrderCard.jsx";
 const UserOrders = () => {
 
     const dataOrders = useGetUserOrder();
-    // console.log(dataOrders);
+    // console.log(dataOrders,"UserOrders");
 
     //check orders length
     if (!dataOrders.length) return;
@@ -17,7 +17,9 @@ const UserOrders = () => {
             <Badge>Мои заказы</Badge>
 
             {
-                dataOrders.map(elem => (
+                dataOrders
+                    .sort((a, b) => b.dateNoRedact - a.dateNoRedact)
+                    .map(elem => (
                     <UoOrderCard key={elem.databaseURL} data={elem} />
                 ))
             }

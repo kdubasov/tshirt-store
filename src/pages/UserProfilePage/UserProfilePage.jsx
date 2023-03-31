@@ -9,11 +9,12 @@ import {NT_AUTH_EMAIL_VERIFY, NT_AUTH_EMAIL_VERIFY_ERROR} from "../../constants/
 import {handleClearNotes} from "../../general-functions/redux-functions/handleClearNotes.js";
 import UpdatePassword from "../../components/UserProfilePage/UpdatePassword/UpdatePassword.jsx";
 import UserOrders from "../../components/UserProfilePage/UserOrders/UserOrders.jsx";
+import LogOut from "../../components/UserProfilePage/LogOut/LogOut.jsx";
 
 const UserProfilePage = () => {
 
     const dispatch = useDispatch();
-    const { user, handleLogOut } = useUserAuth();
+    const { user } = useUserAuth();
     const [verifyEmail, setVerifyEmail] = useState(user.emailVerified);
 
     //Send a user a verification email
@@ -47,9 +48,7 @@ const UserProfilePage = () => {
             <UserOrders />
 
             <div className="d-flex border p-3 mt-2 border">
-                <Button onClick={handleLogOut} size={"sm"} variant={"danger"}>
-                    Выйти
-                </Button>
+                <LogOut />
 
                 {
                     !user.emailVerified &&
